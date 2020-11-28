@@ -1,0 +1,52 @@
+.Frame {
+    //border: 1px solid black;
+
+    &__points {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__attempt {
+        min-width: 1rem;
+        text-align: center;
+        flex-grow: 0;
+        padding: 0.1rem;
+        margin: 0 0  0.1rem 0.1rem;
+
+        & input[type=number] {
+            width: 1rem;
+            border: hidden;
+        }
+
+        & input[type=number]::-webkit-inner-spin-button, 
+        & input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0;
+        }
+
+        &:nth-child(2) {
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+
+        &:nth-last-child(1) {
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+
+        &--spareCase {
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(0,0,0,1) 51%,rgba(0,0,0,1) 100%);
+        }
+
+        &--strikeCase {
+            background-color: black;
+            width: auto;
+        }
+    }
+
+
+    &__finalScore {
+        margin: 0.1rem 0;
+        text-align: center;
+    }
+}

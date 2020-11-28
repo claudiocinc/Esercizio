@@ -1,0 +1,23 @@
+<div class="Frame">
+    <div class="Frame__points">
+        <div class="Frame__attempt">
+            <input type="number" [(ngModel)] = "firstAttempt" (change)="changeDataInService()">
+        </div>
+        <div class="Frame__attempt" [ngClass]="{'Frame__attempt--spareCase': isSpare(), 'Frame__attempt--strikeCase': isStrike()}">
+            <input class="Frame__input--numberCase" type="number" [(ngModel)] = "secondAttempt" *ngIf = "!isSpare() && !isStrike()" (change)="changeDataInService()">
+        </div>
+         <div class="Frame__attempt" *ngIf = "isSpare() && isLast()|| isStrike() && isLast()">
+            <input type="number"  [(ngModel)] = "thirdAttempt" (change)="changeDataInService()">
+            <div class="Frame__attempt--spareCase" *ngIf = "isSpare()"></div>
+            <div class="Frame__attempt--strikeCase" *ngIf = "isStrike()"></div>
+        </div>
+        <div class="Frame__attempt" *ngIf = "isStrike() && isLast()">
+            <input type="number"  [(ngModel)] = "forthAttempt" (change)="changeDataInService()">
+            <div class="Frame__attempt--spareCase" *ngIf = "isSpare()"></div>
+            <div class="Frame__attempt--strikeCase" *ngIf = "isStrike()"></div>
+        </div>
+    </div>
+    <div class="Frame__finalScore">
+        {{frameData.frameScore}}
+    </div>
+</div>

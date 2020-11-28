@@ -1,0 +1,17 @@
+.MainPage {
+    &__frames {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    &__frame {
+        border: 1px solid black;
+        border-right: hidden;
+        min-width: 2rem;
+
+    &:nth-last-child(1) {
+        border-right: 1px solid black;
+    }
+    }
+}
