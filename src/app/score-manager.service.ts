@@ -5,25 +5,12 @@ import { IDataFrame } from './interfaces/interfaces';
 @Injectable({
   providedIn: 'root'
 })
-export class ScoreManagerService implements OnInit{
+export class ScoreManagerService {
 
   public scoreData: IDataFrame[];
 
   constructor() { 
     this.scoreData = new Array();
-  }
-  ngOnInit(): void {
-    for (let i=0; i< 10; i++) {
-      let payload = {
-        frameId: i,
-        frameAttempts: [0, 0, 0, 0],
-        frameScore: 0,
-        partialScore: 0,
-        isStrike: false,
-        isSpare: false
-      }
-      this.scoreData.push(payload);
-    }
   }
 
   public getDataFrame = (id: number): IDataFrame => {
@@ -33,7 +20,6 @@ export class ScoreManagerService implements OnInit{
   }
 
   public setDataFrame = (payload: IDataFrame): void => {
-    console.log(payload);
     this.scoreData.splice(payload.frameId,1,payload);
     let partialScore = 0;
     this.calculateFrameScore()

@@ -43,6 +43,7 @@ export class FrameComponent implements OnInit {
   }
 
   public changeDataInService = () => {
+    this.checkValidity();
     let payload = {
       frameId: this.ID,
       frameAttempts: [this.firstAttempt, this.secondAttempt, this.thirdAttempt, this.forthAttempt],
@@ -52,8 +53,34 @@ export class FrameComponent implements OnInit {
       isSpare: this.isSpare()
     }
     this.scoreManager.setDataFrame(payload);
-    console.log(payload);
     this.frameData = this.scoreManager.getDataFrame(this.data);
+  }
+
+  public checkValidity = () => {
+    if (this.firstAttempt < 0) {
+      this.firstAttempt = 0;
+    };
+    if (this.firstAttempt > 10) {
+      this.firstAttempt = 10;
+    };
+    if (this.secondAttempt < 0) {
+      this.secondAttempt = 0;
+    };
+    if (this.secondAttempt > 10) {
+      this.secondAttempt = 10;
+    };
+    if (this.thirdAttempt < 0) {
+      this.thirdAttempt = 0;
+    };
+    if (this.thirdAttempt > 10) {
+      this.thirdAttempt = 10;
+    };
+    if (this.forthAttempt < 0) {
+      this.forthAttempt = 0;
+    };
+    if (this.forthAttempt > 10) {
+      this.forthAttempt = 10;
+    };
   }
 
 }
